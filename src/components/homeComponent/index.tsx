@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
   Text,
-  ActivityIndicator,
   Image,
   Pressable,
   Dimensions,
 } from "react-native";
 import { Float } from "react-native/Libraries/Types/CodegenTypes";
-import { getProducts } from "../../api/productsApi";
-import { useDispatch } from "react-redux";
 import {
   addToCart,
   removeItem,

@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { HomeScreen } from "./src/screens/home/index";
 import { CartScreen } from "./src/screens/cart/index";
-import {Provider as ReduxProvider} from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux';
 import { store } from "./src/redux/store";
 import FlashMessage from "react-native-flash-message";
 
