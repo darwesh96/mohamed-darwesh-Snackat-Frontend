@@ -16,7 +16,7 @@ import {
 } from "../../redux/cartSlice";
 import { store } from "../../redux/store";
 import { showMessage } from "react-native-flash-message";
-
+import { COLORS } from "../../constants/colors";
 interface Props {
   item: {
     category: string;
@@ -107,18 +107,18 @@ const styles = StyleSheet.create({
   container: {
     width: Dimensions.get("window").width / 2 - 10,
     maxHeight: 400,
-    backgroundColor: "white",
+    backgroundColor: COLORS.white,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "grey",
+    borderColor: COLORS.grey,
     padding: 10,
     justifyContent: "space-between",
     margin: 5,
   },
   category: {
-    backgroundColor: "grey",
+    backgroundColor: COLORS.grey,
     fontSize: 9,
-    color: "white",
+    color: COLORS.white,
     borderRadius: 20,
     paddingVertical: 3,
     paddingHorizontal: 5,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    color: "black",
+    color: COLORS.black,
     fontWeight: "bold",
     marginVertical: 8,
     textAlign: "left",
@@ -143,11 +143,11 @@ const styles = StyleSheet.create({
   },
   priceText: {
     fontSize: 15,
-    color: "black",
+    color: COLORS.black,
     fontWeight: "bold",
   },
   addToCartButton: {
-    backgroundColor: "black",
+    backgroundColor: COLORS.black,
     justifyContent: "center",
     alignSelf: "flex-end",
     marginTop: 10,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   removeFromCartButton: {
-    backgroundColor: "black",
+    backgroundColor: COLORS.red,
     justifyContent: "center",
     alignSelf: "flex-end",
     paddingVertical: 5,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   addToCartText: {
     fontSize: 15,
-    color: "white",
+    color: COLORS.white,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   quantityItem: {
-    backgroundColor: "black",
+    backgroundColor: COLORS.black,
     justifyContent: "center",
     alignSelf: "center",
     paddingVertical: 5,
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   },
   quantityText: {
     fontSize: 15,
-    color: "black",
+    color: COLORS.black,
     fontWeight: "bold",
     textAlign: "center",
     flex: 1,

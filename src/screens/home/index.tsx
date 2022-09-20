@@ -21,13 +21,13 @@ const HomeScreen = ({ }: Props) => {
     });
   }, []);
   return isLoading ? (
-    <ActivityIndicator size="large" style={{ alignSelf: "center", flex: 1 }} />
+    <ActivityIndicator size="large" style={styles.loader} />
   ) : (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={styles.container}>
       <FlatList
-        style={{ width: "100%", flex: 1 }}
+        style={styles.flatlist}
         numColumns={2}
-        contentContainerStyle={styles.flatlist}
+        contentContainerStyle={styles.flatlistContentContainer}
         data={products}
         renderItem={HomeProductCard}
       />
@@ -38,8 +38,11 @@ const HomeScreen = ({ }: Props) => {
 export { HomeScreen };
 
 const styles = StyleSheet.create({
-  flatlist: {
+  flatlist: { width: "100%", flex: 1 },
+  flatlistContentContainer: {
     alignItems: "center",
     justifyContent: "space-around",
   },
+  loader: { alignSelf: "center", flex: 1 },
+  container: { flex: 1, justifyContent: "center", alignItems: "center" }
 });
