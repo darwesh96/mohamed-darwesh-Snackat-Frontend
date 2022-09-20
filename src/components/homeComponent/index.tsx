@@ -17,12 +17,14 @@ import {
 import { store } from "../../redux/store";
 import { showMessage } from "react-native-flash-message";
 import { COLORS } from "../../constants/colors";
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 interface Props {
   item: {
     category: string;
     description: string;
     id: Number;
-    quantity: Number;
+    quantity: string;
     image: string;
     price: Float;
     rating: {
@@ -86,14 +88,14 @@ const HomeProductCard = ({ item, index, cart }: Props) => {
             onPress={() => store.dispatch(decrementQuantity(item.id))}
             style={styles.quantityItem}
           >
-            <Text style={styles.addToCartText}>-</Text>
+            <Ionicons name={'md-remove-circle-sharp'} size={20} color={COLORS.white} />
           </Pressable>
           <Text style={styles.quantityText}>{item.quantity}</Text>
           <Pressable
             onPress={() => store.dispatch(incrementQuantity(item.id))}
             style={styles.quantityItem}
           >
-            <Text style={styles.addToCartText}>+</Text>
+            <Ionicons name={'ios-add-circle-sharp'} size={20} color={COLORS.white} />
           </Pressable>
         </View>
       )}
