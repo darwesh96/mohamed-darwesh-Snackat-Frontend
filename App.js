@@ -7,6 +7,7 @@ import { HomeScreen } from "./src/screens/home/index";
 import { CartScreen } from "./src/screens/cart/index";
 import {Provider as ReduxProvider} from 'react-redux';
 import { store } from "./src/redux/store";
+import FlashMessage from "react-native-flash-message";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
           <Tab.Screen name="Cart" component={CartScreen} />
         </Tab.Navigator>
       </NavigationContainer>
+      <FlashMessage position="bottom" />
     </ReduxProvider>
   );
 }

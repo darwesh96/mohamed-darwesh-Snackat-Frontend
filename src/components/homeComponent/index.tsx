@@ -11,8 +11,14 @@ import {
 import { Float } from "react-native/Libraries/Types/CodegenTypes";
 import { getProducts } from "../../api/productsApi";
 import { useDispatch } from "react-redux";
-import { addToCart, removeItem, incrementQuantity, decrementQuantity } from "../../redux/cartSlice";
+import {
+  addToCart,
+  removeItem,
+  incrementQuantity,
+  decrementQuantity,
+} from "../../redux/cartSlice";
 import { store } from "../../redux/store";
+import { showMessage } from "react-native-flash-message";
 
 interface Props {
   item: {
@@ -37,7 +43,13 @@ const HomeProductCard = ({ item, index, cart }: Props) => {
     <View style={styles.container}>
       {cart && (
         <Pressable
-          onPress={() => store.dispatch(removeItem(item.id))}
+          onPress={() => {
+            showMessage({
+              message: `${item.title} has been removed from cart !`,
+              type: "success",
+            });
+            store.dispatch(removeItem(item.id));
+          }}
           style={styles.removeFromCartButton}
         >
           <Text style={styles.addToCartText}>Remove from Cart</Text>
@@ -58,7 +70,13 @@ const HomeProductCard = ({ item, index, cart }: Props) => {
       </View>
       {!cart && (
         <Pressable
-          onPress={() => store.dispatch(addToCart(item))}
+          onPress={() => {
+            showMessage({
+              message: `${item.title} has been added to cart !`,
+              type: "success",
+            });
+            store.dispatch(addToCart(item));
+          }}
           style={styles.addToCartButton}
         >
           <Text style={styles.addToCartText}>Add to Cart</Text>
@@ -67,7 +85,6 @@ const HomeProductCard = ({ item, index, cart }: Props) => {
 
       {cart && (
         <View style={styles.quantityContainer}>
-          
           <Pressable
             onPress={() => store.dispatch(decrementQuantity(item.id))}
             style={styles.quantityItem}
@@ -148,7 +165,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 5,
     borderRadius: 5,
-    marginBottom:5
+    marginBottom: 5,
   },
   addToCartText: {
     fontSize: 15,
@@ -159,8 +176,8 @@ const styles = StyleSheet.create({
   quantityContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop:5,
-    alignItems:"center"
+    marginTop: 5,
+    alignItems: "center",
   },
   quantityItem: {
     backgroundColor: "black",
@@ -171,11 +188,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginHorizontal: 3,
   },
-  quantityText:{
+  quantityText: {
     fontSize: 15,
     color: "black",
     fontWeight: "bold",
     textAlign: "center",
-    flex:1
-  }
+    flex: 1,
+  },
 });
